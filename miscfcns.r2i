@@ -1,0 +1,23 @@
+afr fcn.__syscall_handler @ 0x402a173c
+afr fcn.__handle_invalid_syscall @ 0x40000b80
+af fcn.kwcscasecmp @ 0x4005b8d4
+af fcn.__impl_sdk_GetApplicationProcW @ 0x40111e50
+af fcn.__impl_sdk_GetApplicationProcA @ 0x4011159c
+af fcn.kstrcasecmp @ 0x4005b394
+#af fcn.panic_abort @ 0x300004ec
+#af fcn.panic_illegal_inst @ 0x300003fc
+
+# Other flags
+fs+functions
+f+ loc.__syscall_table_sdk 742*4 @ 0x402a27a0
+f+ loc.__syscall_table_krnl 103*4 @ 0x402a3338
+#f+ loc.__char_prop_table 256 @ 0x30150bf5
+#"CC 0: upper, 1: lower, 2: number, 3: whitespace, 4: symbol, 5: control, 6: true_space, 7: hex" @ loc.__char_prop_table
+
+f+ loc.__loaded_apps_p 4 @ 0x4011237c
+f+ loc.__loaded_apps 4*16 @ `pv4 @ loc.__loaded_apps_p`
+
+# These functions never return and are not detected properly by r2. Keep them as flags instead.
+#f+ vec.on_abort 22*4 @ 0x30145d00
+#f+ vec.on_illegal_inst 22*4 @ 0x30145d58
+fs-

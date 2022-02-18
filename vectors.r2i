@@ -1,0 +1,8 @@
+f+ vec.reset 4 @ 0x0
+f+ vec.illegal_instruction 4 @ 0x4
+f+ vec.svc 4 @ 0x8
+f+ vec.prefetch_abort 4 @ 0xc
+f+ vec.data_abort 4 @ 0x10
+f+ vec.rfu 4 @ 0x14
+f+ vec.irq 4 @ 0x18
+f+ vec.fiq 4 @ 0x1c
