@@ -10,6 +10,7 @@ e asm.cpu=cortex
 fs+sections
 f section.sram 0x8000 @ 0x0
 f section.sdram 0x2000000 @ 0x40000000
+f section.sdram.heapbase @ 0x40500000
 fs-
 fs *
 
@@ -31,6 +32,9 @@ af fcn.__excvec_prefetch_abort @ section.sram+0xd0
 
 # Load extra functions and flags
 ". ./miscfcns.r2i"
+
+# Load per-dump memchunk info
+". ./private/memchunks.r2i"
 
 # Load syscalls (requires miscfcns.r2i)
 ". ./syscalls_sdk.r2i"
