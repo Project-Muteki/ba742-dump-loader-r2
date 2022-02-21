@@ -7,6 +7,16 @@ af fcn.kstrcasecmp @ 0x4005b394
 #af fcn.panic_abort @ 0x300004ec
 #af fcn.panic_illegal_inst @ 0x300003fc
 
+af fcn.ftl_lock_acquire @ 0x400f9fe4
+af fcn.ftl_lock_release @ 0x400f9fec
+
+af fcn.ftl_get_instance_by_id @ 0x400fd194
+af fcn.ftl_get_current_active_inst @ 0x400fd590
+
+# TODO figure out what these actually do
+af fcn.ftl_invoke_method_0x38 @ 0x400fd1ac
+af fcn.ftl_clear_currrent_active_inst_prop_0x7c_if_exists @ 0x400fa0e4
+
 # Other flags
 fs+functions
 f+ loc.__syscall_table_sdk 742*4 @ 0x402a27a0
@@ -16,6 +26,13 @@ f+ loc.__syscall_table_krnl 103*4 @ 0x402a3338
 
 f+ loc.__loaded_apps_p 4 @ 0x4011237c
 f+ loc.__loaded_apps 4*16 @ `pv4 @ loc.__loaded_apps_p`
+
+f+ loc.ftl_lock_inst_p 4 @ 0x400f9ff4
+f+ loc.ftl_lock_inst @ `pv4 @ loc.ftl_lock_inst_p`
+f+ loc.ftl_current_dev_inst_p @ 0x400fd7e0
+f+ loc.ftl_current_dev_inst @ `pv4 @ loc.ftl_current_dev_inst_p`
+f+ loc.ftl_dev_insts_p 4 @ 0x400fd7e4
+f+ loc.ftl_dev_insts 48 @ `pv4 @ loc.ftl_dev_insts_p`
 
 # These functions never return and are not detected properly by r2. Keep them as flags instead.
 #f+ vec.on_abort 22*4 @ 0x30145d00
