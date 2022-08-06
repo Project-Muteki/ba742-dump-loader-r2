@@ -1,14 +1,29 @@
 afr fcn.__syscall_handler @ 0x402a173c
 afr fcn.__handle_invalid_syscall @ 0x40000b80
-af fcn.kwcscasecmp @ 0x4005b8d4
 af fcn.__impl_sdk_GetApplicationProcW @ 0x40111e50
 af fcn.__impl_sdk_GetApplicationProcA @ 0x4011159c
+
+af fcn.kwcscasecmp @ 0x4005b8d4
+af fcn.kwcscpy @ 0x4005b8b8
+af fcn.kwcscat @ 0x4005b830
 af fcn.kstrcasecmp @ 0x4005b394
+af fcn.kwcsncpy @ 0x4005bb28
+af fcn.kwcslen @ 0x4005b9a0
+af fcn.kbzero @ 0x4029ecc4
+af fcn.strerror_sparse_list_indexof @ 0x40028314
+af fcn._get_error_str_copy_0x8 @ 0x40028ff4
+af fcn._get_error_str_0x8 @ 0x40028edc
+
+af fcn.strerror_r_ish @ 0x400280f8
+afvr r0 errno int32_t @ fcn.strerror_r_ish
+afvr r1 outbuf char * @ fcn.strerror_r_ish
+afvr r2 buflen size_t @ fcn.strerror_r_ish
+
 #af fcn.panic_abort @ 0x300004ec
 #af fcn.panic_illegal_inst @ 0x300003fc
 
-af fcn.ftl_lock_acquire @ 0x400f9fe4
-af fcn.ftl_lock_release @ 0x400f9fec
+#af fcn.ftl_lock_acquire @ 0x400f9fe4
+#af fcn.ftl_lock_release @ 0x400f9fec
 
 af fcn.ftl_get_instance_by_id @ 0x400fd194
 af fcn.ftl_get_current_active_inst @ 0x400fd590
@@ -16,6 +31,10 @@ af fcn.ftl_get_current_active_inst @ 0x400fd590
 # TODO figure out what these actually do
 af fcn.ftl_invoke_method_0x38 @ 0x400fd1ac
 af fcn.ftl_clear_currrent_active_inst_prop_0x7c_if_exists @ 0x400fa0e4
+
+af fcn.restore_cpsr @ 0x402a1880
+af fcn.save_cpsr_and_no_interrupt @ 0x402a1868
+af fcn.uart_putc @ 0x400056a0
 
 # Other flags
 fs+functions
@@ -34,7 +53,12 @@ f+ loc.ftl_current_dev_inst @ `pv4 @ loc.ftl_current_dev_inst_p`
 f+ loc.ftl_dev_insts_p 4 @ 0x400fd7e4
 f+ loc.ftl_dev_insts 48 @ `pv4 @ loc.ftl_dev_insts_p`
 
+f+ loc.strtab_strerror_type_8 @ `pv4 @ 0x40028310`
+f+ loc.strtab_strerror_type_4_below102 @ `pv4 @ 0x4002830c`
+f+ loc.strtab_strerror_type_4_above102 @ `pv4 @ 0x40028300`
+
 # These functions never return and are not detected properly by r2. Keep them as flags instead.
 #f+ vec.on_abort 22*4 @ 0x30145d00
 #f+ vec.on_illegal_inst 22*4 @ 0x30145d58
+f+ fcn.literally_just_lmalloc 4 @ 0x40002cfc
 fs-

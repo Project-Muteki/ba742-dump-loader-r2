@@ -1,0 +1,9 @@
+# fcn.sdk_FormatMessage
+af @ fcn.sdk_FormatMessage
+afvr r0 arg1 @ fcn.sdk_FormatMessage
+afvr r1 arg2 @ fcn.sdk_FormatMessage
+afvr r2 arg3 @ fcn.sdk_FormatMessage
+afvr r3 arg4 @ fcn.sdk_FormatMessage
+afvs 0x124 arg_124h @ fcn.sdk_FormatMessage
+afvs 0x120 arg_120h @ fcn.sdk_FormatMessage
+

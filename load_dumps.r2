@@ -41,5 +41,8 @@ af fcn.__excvec_prefetch_abort @ section.sram+0xd0
 ". ./syscalls_sdk_hpprime.r2i"
 ". ./syscalls_krnl.r2i"
 
+# Load syscall signature overrides
+". ./syscall_sig.r2i"
+
 # Seek to main memory
 s section.sdram
