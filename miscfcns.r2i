@@ -10,7 +10,10 @@ af fcn.kstrcasecmp @ 0x4005b394
 af fcn.kwcsncpy @ 0x4005bb28
 af fcn.kwcslen @ 0x4005b9a0
 af fcn.kbzero @ 0x4029ecc4
+af fcn.kswprintf @ 0x4005c230
 af fcn.strerror_sparse_list_indexof @ 0x40028314
+af fcn.strerror_copy_from_strtab @ 0x40028fd4
+af fcn.strerror_append_from_strtab @ 0x40028f94
 af fcn._get_error_str_copy_0x8 @ 0x40028ff4
 af fcn._get_error_str_0x8 @ 0x40028edc
 
@@ -53,6 +56,7 @@ f+ loc.ftl_current_dev_inst @ `pv4 @ loc.ftl_current_dev_inst_p`
 f+ loc.ftl_dev_insts_p 4 @ 0x400fd7e4
 f+ loc.ftl_dev_insts 48 @ `pv4 @ loc.ftl_dev_insts_p`
 
+f+ loc.strtab_base @ `pv4 @ 0x40029104`
 f+ loc.strtab_strerror_type_8 @ `pv4 @ 0x40028310`
 f+ loc.strtab_strerror_type_4_below102 @ `pv4 @ 0x4002830c`
 f+ loc.strtab_strerror_type_4_above102 @ `pv4 @ 0x40028300`
