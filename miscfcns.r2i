@@ -39,6 +39,9 @@ af fcn.restore_cpsr @ 0x402a1880
 af fcn.save_cpsr_and_no_interrupt @ 0x402a1868
 af fcn.uart_putc @ 0x400056a0
 
+af fcn.sound_playback_worker @ 0x4001cf9c
+af fcn.play_sound_common @ 0x4001d5ec
+
 # Other flags
 fs+functions
 f+ loc.__syscall_table_sdk 742*4 @ 0x402a27a0
@@ -65,4 +68,5 @@ f+ loc.strtab_strerror_type_4_above102 @ `pv4 @ 0x40028300`
 #f+ vec.on_abort 22*4 @ 0x30145d00
 #f+ vec.on_illegal_inst 22*4 @ 0x30145d58
 f+ fcn.literally_just_lmalloc 4 @ 0x40002cfc
+f+ fcn.literally_just__lfree 4 @ 0x40002d00
 fs-
