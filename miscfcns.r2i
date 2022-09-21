@@ -42,6 +42,23 @@ af fcn.uart_putc @ 0x400056a0
 af fcn.sound_playback_worker @ 0x4001cf9c
 af fcn.play_sound_common @ 0x4001d5ec
 
+af fcn.threading_find_slot @ 0x400013c4
+af fcn.setup_cpu_context @ 0x40002d1c
+afvr r0 cb void * @ fcn.setup_cpu_context
+afvr r1 on_thread_exit void * @ fcn.setup_cpu_context
+afvr r2 user_data void * @ fcn.setup_cpu_context
+afvr r3 stack_base char * @ fcn.setup_cpu_context
+af fcn.thread_create @ 0x40001108
+afvr r0 slot int @ fcn.thread_create
+afvr r1 real_stack_base uintptr_t * @ fcn.thread_create
+afvr r2 stack void * @ fcn.thread_create
+afvr r3 ret_40002cf4 int @ fcn.thread_create
+afvs 4 OSCreateThread_arg4 @ fcn.thread_create
+afvs 0 thread_cb void * @ fcn.thread_create
+af fcn._on_thread_exit @ 0x4000159c
+af fcn._reschedule_now @ 0x40000db4
+af fcn._do_context_switch @ 0x402a26e8
+
 # Other flags
 fs+functions
 f+ loc.__syscall_table_sdk 742*4 @ 0x402a27a0
@@ -63,6 +80,9 @@ f+ loc.strtab_base @ `pv4 @ 0x40029104`
 f+ loc.strtab_strerror_type_8 @ `pv4 @ 0x40028310`
 f+ loc.strtab_strerror_type_4_below102 @ `pv4 @ 0x4002830c`
 f+ loc.strtab_strerror_type_4_above102 @ `pv4 @ 0x40028300`
+f+ loc.bit_shift_tab @ 0x402adf30
+f+ loc.binary_carry_sequence_8b_tab @ 0x402adf38
+f+ loc._thread_slots @ 0x4039ef34
 
 # These functions never return and are not detected properly by r2. Keep them as flags instead.
 #f+ vec.on_abort 22*4 @ 0x30145d00
