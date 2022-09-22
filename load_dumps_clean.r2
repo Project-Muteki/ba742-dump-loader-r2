@@ -17,7 +17,7 @@ fs *
 
 # Map files
 o "private/sram@0x0.dmp" section.sram rwx
-o "private/sdram@0x40000000.dmp" section.sdram rwx
+o "private/code@0x40000000.bin" section.sdram rwx
 
 # Import SRAM layout
 ". ./vectors.r2i"

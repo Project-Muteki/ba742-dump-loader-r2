@@ -80,8 +80,9 @@ f+ loc.strtab_base @ `pv4 @ 0x40029104`
 f+ loc.strtab_strerror_type_8 @ `pv4 @ 0x40028310`
 f+ loc.strtab_strerror_type_4_below102 @ `pv4 @ 0x4002830c`
 f+ loc.strtab_strerror_type_4_above102 @ `pv4 @ 0x40028300`
-f+ loc.bit_shift_tab @ 0x402adf30
-f+ loc.binary_carry_sequence_8b_tab @ 0x402adf38
+
+f+ loc.bit_shift_tab 8 @ 0x402adf30
+f+ loc.binary_carry_sequence_8b_tab 256 @ 0x402adf38
 f+ loc._thread_slots @ 0x4039ef34
 
 # These functions never return and are not detected properly by r2. Keep them as flags instead.
