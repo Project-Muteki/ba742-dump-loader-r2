@@ -5,6 +5,10 @@ e asm.arch=arm
 e asm.bits=32
 e asm.cpu=cortex
 e anal.cc=arm32
+e r2ghidra.lang=ARM:LE:32:v5:
+# Disable const propagation and do not guess what is constant since it seems to cause problems
+# This is a hack and we need to figure out why r2ghidra is doing this erratic const propagation
+e r2ghidra.roprop=0
 ". ./imx233.r2i"
 
 # Label locations

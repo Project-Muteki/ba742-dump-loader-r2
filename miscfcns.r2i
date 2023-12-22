@@ -11,6 +11,7 @@ af fcn.kwcsncpy @ 0x4005bb28
 af fcn.kwcslen @ 0x4005b9a0
 af fcn.kbzero @ 0x4029ecc4
 af fcn.kswprintf @ 0x4005c230
+af fcn.kstrncpy @ 0x4005b564
 af fcn.strerror_sparse_list_indexof @ 0x40028314
 af fcn.strerror_copy_from_strtab @ 0x40028fd4
 af fcn.strerror_append_from_strtab @ 0x40028f94
@@ -58,6 +59,12 @@ afvs 0 thread_cb void * @ fcn.thread_create
 af fcn._on_thread_exit @ 0x4000159c
 af fcn._reschedule_now @ 0x40000db4
 af fcn._do_context_switch @ 0x402a26e8
+af fcn._message_queue_new @ 0x400026ec
+af fcn._message_queue_push @ 0x40002654
+af fcn._search_device_table @ 0x4002bcac
+af fcn.alloc_descriptor @ 0x4002bc40
+af fcn.find_empty_descriptor @ 0x400672b8
+af fcn._maybe_divmod @ 0x402a1714
 
 # Other flags
 fs+functions

@@ -10,3 +10,8 @@ afvs 0x120 arg_120h @ fcn.sdk_FormatMessage
 af @ fcn.sdk_OSCreateThread
 afvr r2 arg3 @ fcn.sdk_OSCreateThread
 afvr r3 arg4 @ fcn.sdk_OSCreateThread
+
+af @ fcn.sdk_OpenPCMCodec
+afvr r0 channels int32_t @ fcn.sdk_OpenPCMCodec
+afvr r1 sample_rate int32_t @ fcn.sdk_OpenPCMCodec
+afvr r2 buffer_level int32_t @ fcn.sdk_OpenPCMCodec
