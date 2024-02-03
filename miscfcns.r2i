@@ -10,6 +10,7 @@ af fcn.kstrcasecmp @ 0x4005b394
 af fcn.kwcsncpy @ 0x4005bb28
 af fcn.kwcslen @ 0x4005b9a0
 af fcn.kbzero @ 0x4029ecc4
+af fcn.kmemset @ 0x4005bfc4
 af fcn.kswprintf @ 0x4005c230
 af fcn.kstrncpy @ 0x4005b564
 af fcn.strerror_sparse_list_indexof @ 0x40028314
@@ -26,15 +27,19 @@ afvr r2 buflen size_t @ fcn.strerror_r_ish
 #af fcn.panic_abort @ 0x300004ec
 #af fcn.panic_illegal_inst @ 0x300003fc
 
-#af fcn.ftl_lock_acquire @ 0x400f9fe4
-#af fcn.ftl_lock_release @ 0x400f9fec
-
 af fcn.ftl_get_instance_by_id @ 0x400fd194
 af fcn.ftl_get_current_active_inst @ 0x400fd590
 
 # TODO figure out what these actually do
 af fcn.ftl_invoke_method_0x38 @ 0x400fd1ac
 af fcn.ftl_clear_currrent_active_inst_prop_0x7c_if_exists @ 0x400fa0e4
+af fcn.ftl_swap_errno @ 0x400fa0c4
+
+af fcn.cwd_swap_errno @ 0x400e63ac
+af fcn.path_validate @ 0x400cd1a8
+af fcn.cwd_get_current_drive @ 0x400e5224
+af fcn.cwd_current_drive_or_id @ 0x400d2118
+af fcn.cwd_agetcurdir_impl @ 0x400e5394
 
 af fcn.restore_cpsr @ 0x402a1880
 af fcn.save_cpsr_and_no_interrupt @ 0x402a1868
@@ -82,6 +87,10 @@ f+ loc.ftl_current_dev_inst_p @ 0x400fd7e0
 f+ loc.ftl_current_dev_inst @ `pv4 @ loc.ftl_current_dev_inst_p`
 f+ loc.ftl_dev_insts_p 4 @ 0x400fd7e4
 f+ loc.ftl_dev_insts 48 @ `pv4 @ loc.ftl_dev_insts_p`
+
+# Radare doesn't anal this properly so flag instead
+f+ fcn.ftl_lock_acquire 8 @ 0x400f9fe4
+f+ fcn.ftl_lock_release 8 @ 0x400f9fec
 
 f+ loc.strtab_base @ `pv4 @ 0x40029104`
 f+ loc.strtab_strerror_type_8 @ `pv4 @ 0x40028310`
