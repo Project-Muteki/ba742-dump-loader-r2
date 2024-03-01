@@ -1,7 +1,24 @@
+af entry0 @ 0x40000020
 afr fcn.__syscall_handler @ 0x402a173c
+af fcn.__fiq_handler @ 0x402a1780
+af fcn.__irq_handler @ 0x402a17f4
+af fcn.__irq_handler_part2 @ 0x402a181c
 afr fcn.__handle_invalid_syscall @ 0x40000b80
 af fcn.__impl_sdk_GetApplicationProcW @ 0x40111e50
 af fcn.__impl_sdk_GetApplicationProcA @ 0x4011159c
+
+f fcn.icoll_callback @ 0x40000700
+#afvr r0 stat uint32_t @ fcn.icoll_callback
+#afvr r1 vector uintptr_t @ fcn.icoll_callback
+f fcn.icoll_trigger @ 0x400008b8
+
+f fcn.irq_vdd5v_callback @ 0x400076ac
+f fcn.irq_timer0_ticker_callback @ 0x40002eb4
+f fcn.irq_timer1_callback @ 0x4000bd90
+f fcn.irq_pxp_callback @ 0x4000bd90
+
+f fcn.sched_inc_some_counter @ 0x400017e4
+f fcn.sched_ticker @ 0x40001ab4
 
 af fcn.kwcscasecmp @ 0x4005b8d4
 af fcn.kwcscpy @ 0x4005b8b8
@@ -35,11 +52,14 @@ af fcn.ftl_invoke_method_0x38 @ 0x400fd1ac
 af fcn.ftl_clear_currrent_active_inst_prop_0x7c_if_exists @ 0x400fa0e4
 af fcn.ftl_swap_errno @ 0x400fa0c4
 
+af fcn.ftl_driver_ramdisk_close @ 0x400fd028
+
 af fcn.cwd_swap_errno @ 0x400e63ac
 af fcn.path_validate @ 0x400cd1a8
 af fcn.cwd_get_current_drive @ 0x400e5224
 af fcn.cwd_current_drive_or_id @ 0x400d2118
 af fcn.cwd_agetcurdir_impl @ 0x400e5394
+af fcn.sdk__agetcurdir_impl @ 0x400ccf7c
 
 af fcn.restore_cpsr @ 0x402a1880
 af fcn.save_cpsr_and_no_interrupt @ 0x402a1868
@@ -71,6 +91,9 @@ af fcn.alloc_descriptor @ 0x4002bc40
 af fcn.find_empty_descriptor @ 0x400672b8
 af fcn._maybe_divmod @ 0x402a1714
 
+af fcn._timer1_thread @ 0x40008a8c
+"CC fcn._timer1_thread" @ 0x40008b08
+
 # Other flags
 fs+functions
 f+ loc.__syscall_table_sdk 742*4 @ 0x402a27a0
@@ -78,8 +101,15 @@ f+ loc.__syscall_table_krnl 103*4 @ 0x402a3338
 #f+ loc.__char_prop_table 256 @ 0x30150bf5
 #"CC 0: upper, 1: lower, 2: number, 3: whitespace, 4: symbol, 5: control, 6: true_space, 7: hex" @ loc.__char_prop_table
 
+f+ loc.icoll_callback_table_direct_p 4 @ 0x40000934
+f+ loc.icoll_callback_table_direct 66 * 4 @ 0x4039eac4
 f+ loc.__loaded_apps_p 4 @ 0x4011237c
 f+ loc.__loaded_apps 4*16 @ `pv4 @ loc.__loaded_apps_p`
+
+f+ loc.sched_active_p 4 @ 0x40001c58
+f+ loc.sched_active 1 @ `pv4 @ loc.sched_active_p`
+f+ loc.sched_sleep_counter_steps 2 @ `pv4 @ loc.sched_active_p`+0x6
+f+ loc.sched_current_thread 4 @ `pv4 @ loc.sched_active_p`+0xc
 
 f+ loc.ftl_lock_inst_p 4 @ 0x400f9ff4
 f+ loc.ftl_lock_inst @ `pv4 @ loc.ftl_lock_inst_p`
