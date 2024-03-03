@@ -94,6 +94,22 @@ af fcn._maybe_divmod @ 0x402a1714
 af fcn._timer1_thread @ 0x40008a8c
 "CC fcn._timer1_thread" @ 0x40008b08
 
+f fcn.ioctl_simple @ 0x40005af8
+f fcn.ioctl_simple_callback_dev_0x19 @ 0x40005580
+f fcn.ioctl_simple_callback_dev_0x1b @ 0x40013c28
+f fcn.ioctl_simple_callback_dev_0x11 @ 0x4000e134
+f fcn.ioctl_simple_callback_dev_0x6 @ 0x40009d18
+f fcn.ioctl_simple_callback_dev_0xf @ 0x4000f254
+f fcn.ioctl_simple_callback_dev_0x14 @ 0x4000e65c
+f fcn.ioctl_simple_callback_dev_0x1 @ 0x40006fc0
+f fcn.ioctl_simple_callback_dev_0xa @ 0x40011360
+f fcn.ioctl_simple_callback_dev_0xe @ 0x4000ba28
+f fcn.ioctl_simple_callback_dev_0x1f @ 0x40010e14
+"CC IOCTL handler for device singletons. Returns the length written to out buffer." @ fcn.ioctl_simple
+
+# For fcn.sdk_LCDOn
+"CC Always turn on backlight?" @ 0x40009ec4
+
 # Other flags
 fs+functions
 f+ loc.__syscall_table_sdk 742*4 @ 0x402a27a0
@@ -130,6 +146,8 @@ f+ loc.strtab_strerror_type_4_above102 @ `pv4 @ 0x40028300`
 f+ loc.bit_shift_tab 8 @ 0x402adf30
 f+ loc.binary_carry_sequence_8b_tab 256 @ 0x402adf38
 f+ loc._thread_slots @ 0x4039ef34
+
+f+ loc.ioctl_simple_table 144 @ 0x402ae160
 
 # These functions never return and are not detected properly by r2. Keep them as flags instead.
 #f+ vec.on_abort 22*4 @ 0x30145d00
