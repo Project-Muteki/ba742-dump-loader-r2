@@ -1,11 +1,11 @@
 af entry0 @ 0x40000020
 afr fcn.__syscall_handler @ 0x402a173c
-af fcn.__fiq_handler @ 0x402a1780
-af fcn.__irq_handler @ 0x402a17f4
-af fcn.__irq_handler_part2 @ 0x402a181c
+f fcn.__fiq_handler @ 0x402a1780
+f fcn.__irq_handler @ 0x402a17f4
+f fcn.__irq_handler_part2 @ 0x402a181c
 afr fcn.__handle_invalid_syscall @ 0x40000b80
-af fcn.__impl_sdk_GetApplicationProcW @ 0x40111e50
-af fcn.__impl_sdk_GetApplicationProcA @ 0x4011159c
+f fcn.__impl_sdk_GetApplicationProcW @ 0x40111e50
+f fcn.__impl_sdk_GetApplicationProcA @ 0x4011159c
 
 f fcn.icoll_callback @ 0x40000700
 #afvr r0 stat uint32_t @ fcn.icoll_callback
@@ -20,21 +20,23 @@ f fcn.irq_pxp_callback @ 0x4000bd90
 f fcn.sched_inc_some_counter @ 0x400017e4
 f fcn.sched_ticker @ 0x40001ab4
 
-af fcn.kwcscasecmp @ 0x4005b8d4
-af fcn.kwcscpy @ 0x4005b8b8
-af fcn.kwcscat @ 0x4005b830
-af fcn.kstrcasecmp @ 0x4005b394
-af fcn.kwcsncpy @ 0x4005bb28
-af fcn.kwcslen @ 0x4005b9a0
-af fcn.kbzero @ 0x4029ecc4
-af fcn.kmemset @ 0x4005bfc4
-af fcn.kswprintf @ 0x4005c230
-af fcn.kstrncpy @ 0x4005b564
-af fcn.strerror_sparse_list_indexof @ 0x40028314
-af fcn.strerror_copy_from_strtab @ 0x40028fd4
-af fcn.strerror_append_from_strtab @ 0x40028f94
-af fcn._get_error_str_copy_0x8 @ 0x40028ff4
-af fcn._get_error_str_0x8 @ 0x40028edc
+f fcn.kwcscasecmp @ 0x4005b8d4
+f fcn.kwcscpy @ 0x4005b8b8
+f fcn.kwcscat @ 0x4005b830
+f fcn.kstrcasecmp @ 0x4005b394
+f fcn.kwcsncpy @ 0x4005bb28
+f fcn.kwcslen @ 0x4005b9a0
+f fcn.kmemcpy @ 0x4029e9f8
+f fcn._kmemcpy_word_aligned @ 0x4029ebe0
+f fcn.kbzero @ 0x4029ecc4
+f fcn.kmemset @ 0x4005bfc4
+f fcn.kswprintf @ 0x4005c230
+f fcn.kstrncpy @ 0x4005b564
+f fcn.strerror_sparse_list_indexof @ 0x40028314
+f fcn.strerror_copy_from_strtab @ 0x40028fd4
+f fcn.strerror_append_from_strtab @ 0x40028f94
+f fcn._get_error_str_copy_0x8 @ 0x40028ff4
+f fcn._get_error_str_0x8 @ 0x40028edc
 
 af fcn.strerror_r_ish @ 0x400280f8
 afvr r0 errno int32_t @ fcn.strerror_r_ish
@@ -44,31 +46,31 @@ afvr r2 buflen size_t @ fcn.strerror_r_ish
 #af fcn.panic_abort @ 0x300004ec
 #af fcn.panic_illegal_inst @ 0x300003fc
 
-af fcn.ftl_get_instance_by_id @ 0x400fd194
-af fcn.ftl_get_current_active_inst @ 0x400fd590
+f fcn.ftl_get_instance_by_id @ 0x400fd194
+f fcn.ftl_get_current_active_inst @ 0x400fd590
 
 # TODO figure out what these actually do
-af fcn.ftl_invoke_method_0x38 @ 0x400fd1ac
-af fcn.ftl_clear_currrent_active_inst_prop_0x7c_if_exists @ 0x400fa0e4
-af fcn.ftl_swap_errno @ 0x400fa0c4
+f fcn.ftl_invoke_method_0x38 @ 0x400fd1ac
+f fcn.ftl_clear_currrent_active_inst_prop_0x7c_if_exists @ 0x400fa0e4
+f fcn.ftl_swap_errno @ 0x400fa0c4
 
-af fcn.ftl_driver_ramdisk_close @ 0x400fd028
+f fcn.ftl_driver_ramdisk_close @ 0x400fd028
 
-af fcn.cwd_swap_errno @ 0x400e63ac
-af fcn.path_validate @ 0x400cd1a8
-af fcn.cwd_get_current_drive @ 0x400e5224
-af fcn.cwd_current_drive_or_id @ 0x400d2118
-af fcn.cwd_agetcurdir_impl @ 0x400e5394
-af fcn.sdk__agetcurdir_impl @ 0x400ccf7c
+f fcn.cwd_swap_errno @ 0x400e63ac
+f fcn.path_validate @ 0x400cd1a8
+f fcn.cwd_get_current_drive @ 0x400e5224
+f fcn.cwd_current_drive_or_id @ 0x400d2118
+f fcn.cwd_agetcurdir_impl @ 0x400e5394
+f fcn.sdk__agetcurdir_impl @ 0x400ccf7c
 
-af fcn.restore_cpsr @ 0x402a1880
-af fcn.save_cpsr_and_no_interrupt @ 0x402a1868
-af fcn.uart_putc @ 0x400056a0
+f fcn.restore_cpsr @ 0x402a1880
+f fcn.save_cpsr_and_no_interrupt @ 0x402a1868
+f fcn.uart_putc @ 0x400056a0
 
-af fcn.sound_playback_worker @ 0x4001cf9c
-af fcn.play_sound_common @ 0x4001d5ec
+f fcn.sound_playback_worker @ 0x4001cf9c
+f fcn.play_sound_common @ 0x4001d5ec
 
-af fcn.threading_find_slot @ 0x400013c4
+f fcn.threading_find_slot @ 0x400013c4
 af fcn.setup_cpu_context @ 0x40002d1c
 afvr r0 cb void * @ fcn.setup_cpu_context
 afvr r1 on_thread_exit void * @ fcn.setup_cpu_context
@@ -81,17 +83,17 @@ afvr r2 stack void * @ fcn.thread_create
 afvr r3 ret_40002cf4 int @ fcn.thread_create
 afvs 4 OSCreateThread_arg4 @ fcn.thread_create
 afvs 0 thread_cb void * @ fcn.thread_create
-af fcn._on_thread_exit @ 0x4000159c
-af fcn._reschedule_now @ 0x40000db4
-af fcn._do_context_switch @ 0x402a26e8
-af fcn._message_queue_new @ 0x400026ec
-af fcn._message_queue_push @ 0x40002654
-af fcn._search_device_table @ 0x4002bcac
-af fcn.alloc_descriptor @ 0x4002bc40
-af fcn.find_empty_descriptor @ 0x400672b8
-af fcn._maybe_divmod @ 0x402a1714
+f fcn._on_thread_exit @ 0x4000159c
+f fcn._reschedule_now @ 0x40000db4
+f fcn._do_context_switch @ 0x402a26e8
+f fcn._message_queue_new @ 0x400026ec
+f fcn._message_queue_push @ 0x40002654
+f fcn._search_device_table @ 0x4002bcac
+f fcn.alloc_descriptor @ 0x4002bc40
+f fcn.find_empty_descriptor @ 0x400672b8
+f fcn._maybe_divmod @ 0x402a1714
 
-af fcn._timer1_thread @ 0x40008a8c
+f fcn._timer1_thread @ 0x40008a8c
 "CC fcn._timer1_thread" @ 0x40008b08
 
 f fcn.ioctl_simple @ 0x40005af8
@@ -148,6 +150,9 @@ f+ loc.binary_carry_sequence_8b_tab 256 @ 0x402adf38
 f+ loc._thread_slots @ 0x4039ef34
 
 f+ loc.ioctl_simple_table 144 @ 0x402ae160
+
+f+ loc.main_lcd_descriptor 0x104 @ 0x40562808
+f+ loc.main_lcd_surface_descriptor 0x14 @ 0x40562908
 
 # These functions never return and are not detected properly by r2. Keep them as flags instead.
 #f+ vec.on_abort 22*4 @ 0x30145d00
