@@ -25,13 +25,13 @@ o "private/sdram@0x40000000.dmp" section.sdram rwx
 
 # Import SRAM layout
 ". ./vectors.r2i"
-af fcn.__excvec_reset @ section.sram+0x40
-af fcn.__excvec_fiq_handler @ section.sram+0x58
-af fcn.__excvec_irq_handler @ section.sram+0x70
-af fcn.__excvec_illegal_inst @ section.sram+0x88
-af fcn.__excvec_svc @ section.sram+0xa0
-af fcn.__excvec_data_abort @ section.sram+0xb8
-af fcn.__excvec_prefetch_abort @ section.sram+0xd0
+f fcn.__excvec_reset @ section.sram+0x40
+f fcn.__excvec_fiq_handler @ section.sram+0x58
+f fcn.__excvec_irq_handler @ section.sram+0x70
+f fcn.__excvec_illegal_inst @ section.sram+0x88
+f fcn.__excvec_svc @ section.sram+0xa0
+f fcn.__excvec_data_abort @ section.sram+0xb8
+f fcn.__excvec_prefetch_abort @ section.sram+0xd0
 
 # Load extra functions and flags
 ". ./miscfcns.r2i"
