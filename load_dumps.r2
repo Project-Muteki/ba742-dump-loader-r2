@@ -6,22 +6,37 @@ e asm.bits=32
 e asm.cpu=cortex
 e anal.cc=arm32
 e r2ghidra.lang=ARM:LE:32:v5:
+e io.cache=true
 # Disable const propagation and do not guess what is constant since it seems to cause problems
 # This is a hack and we need to figure out why r2ghidra is doing this erratic const propagation
-e r2ghidra.roprop=0
+#e r2ghidra.roprop=0
 ". ./imx233.r2i"
 
 # Label locations
 fs+sections
 f section.sram 0x8000 @ 0x0
 f section.sdram 0x2000000 @ 0x40000000
-f section.sdram.heapbase @ 0x40500000
+f section.sdram.code 0x380000 @ 0x40000000
+f section.sdram.bss 0x180000 @ 0x40380000
+f section.sdram.heapbase 0x1b00000 @ 0x40500000
+
+# These are obtained from diffing and looking at the data. Might be misleading down the line so disabled for now.
+#f section.sdram.text 0x2ac334 @ section.sdram
+#f section.sdram.rodata 0x57284 @ section.sdram.text + `fl @ section.sdram.text`
+#f section.sdram.bss 0x77fb8 @ 0x40380000
 fs-
 fs *
 
 # Map files
-o "private/sram@0x0.dmp" section.sram rwx
-o "private/sdram@0x40000000.dmp" section.sdram rwx
+of "private/sram@0x0.dmp"
+om 3 section.sram `fl @ section.sram` 0x0 rwx sram
+of "private/sdram@0x40000000.dmp"
+om 4 section.sdram.code `fl @ section.sdram.code` 0x0 r-x sdram.code
+om 4 section.sdram.bss `fl @ section.sdram.bss` `?v section.sdram.bss - section.sdram` rwx sdram.bss
+om 4 section.sdram.heapbase `fl @ section.sdram.heapbase` `?v section.sdram.heapbase - section.sdram` rwx sdram.heap
+# idk why these are needed
+omf 3 rwx
+omf 4 rwx
 
 # Import SRAM layout
 ". ./vectors.r2i"

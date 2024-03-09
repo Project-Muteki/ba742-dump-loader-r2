@@ -112,6 +112,9 @@ f fcn.ioctl_simple_callback_dev_0x1f @ 0x40010e14
 # For fcn.sdk_LCDOn
 "CC Always turn on backlight?" @ 0x40009ec4
 
+f fcn.__impl_sdk_ScrollDown @ 0x40044420
+f fcn.lcd_get_height @ 0x4003eb10
+
 # Other flags
 fs+functions
 f+ loc.__syscall_table_sdk 742*4 @ 0x402a27a0
@@ -151,6 +154,8 @@ f+ loc._thread_slots @ 0x4039ef34
 
 f+ loc.ioctl_simple_table 144 @ 0x402ae160
 
+f+ loc.main_lcd_surface_descriptor_p 0x4 @ 0x40380d54
+f+ loc.main_lcd_descriptor_p 0x4 @ 0x40380d58
 f+ loc.main_lcd_descriptor 0x104 @ 0x40562808
 f+ loc.main_lcd_surface_descriptor 0x14 @ 0x40562908
 
