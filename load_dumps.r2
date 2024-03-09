@@ -7,9 +7,7 @@ e asm.cpu=cortex
 e anal.cc=arm32
 e r2ghidra.lang=ARM:LE:32:v5:
 e io.cache=true
-# Disable const propagation and do not guess what is constant since it seems to cause problems
-# This is a hack and we need to figure out why r2ghidra is doing this erratic const propagation
-#e r2ghidra.roprop=0
+e r2ghidra.roprop=3
 ". ./imx233.r2i"
 
 # Label locations
@@ -29,11 +27,13 @@ fs *
 
 # Map files
 of "private/sram@0x0.dmp"
-om 3 section.sram `fl @ section.sram` 0x0 rwx sram
 of "private/sdram@0x40000000.dmp"
+
+om 3 section.sram `fl @ section.sram` 0x0 rwx sram
 om 4 section.sdram.code `fl @ section.sdram.code` 0x0 r-x sdram.code
 om 4 section.sdram.bss `fl @ section.sdram.bss` `?v section.sdram.bss - section.sdram` rwx sdram.bss
 om 4 section.sdram.heapbase `fl @ section.sdram.heapbase` `?v section.sdram.heapbase - section.sdram` rwx sdram.heap
+
 # idk why these are needed
 omf 3 rwx
 omf 4 rwx
