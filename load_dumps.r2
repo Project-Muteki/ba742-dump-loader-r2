@@ -16,7 +16,8 @@ f section.sram 0x8000 @ 0x0
 f section.sdram 0x2000000 @ 0x40000000
 f section.sdram.code 0x380000 @ 0x40000000
 f section.sdram.bss 0x180000 @ 0x40380000
-f section.sdram.heapbase 0x1b00000 @ 0x40500000
+f section.sdram.heapbase 0x1900000 @ 0x40500000
+f section.sdram.reserved 0x200000 @ 0x41e00000
 
 # These are obtained from diffing and looking at the data. Might be misleading down the line so disabled for now.
 #f section.sdram.text 0x2ac334 @ section.sdram
@@ -33,6 +34,7 @@ om 3 section.sram `fl @ section.sram` 0x0 rwx sram
 om 4 section.sdram.code `fl @ section.sdram.code` 0x0 r-x sdram.code
 om 4 section.sdram.bss `fl @ section.sdram.bss` `?v section.sdram.bss - section.sdram` rwx sdram.bss
 om 4 section.sdram.heapbase `fl @ section.sdram.heapbase` `?v section.sdram.heapbase - section.sdram` rwx sdram.heap
+om 4 section.sdram.reserved `fl @ section.sdram.reserved` `?v section.sdram.reserved - section.sdram` rw- sdram.reserved
 
 # idk why these are needed
 omf 3 rwx
